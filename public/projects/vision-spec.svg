@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b14" />
+      <stop offset="50%" stop-color="#0a1526" />
+      <stop offset="100%" stop-color="#03070f" />
+    </linearGradient>
+    <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.8" />
+    </linearGradient>
+    <filter id="glow-filter-2" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <pattern id="dot-grid-2" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#38bdf8" fill-opacity="0.08" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg-grad-2)" />
+  <rect width="1200" height="700" fill="url(#dot-grid-2)" />
+
+  <circle cx="580" cy="350" r="280" fill="#0284c7" fill-opacity="0.09" filter="url(#glow-filter-2)" />
+
+  <!-- Technical Header -->
+  <g transform="translate(60, 50)">
+    <text font-family="monospace" font-size="12" fill="#38bdf8" letter-spacing="2">SYSTEM ID: VISION-SPEC-V2 // AUTOMATED DEFECT DETECTION PIPELINE</text>
+    <text x="960" y="0" font-family="monospace" font-size="12" fill="#71717a" letter-spacing="1">INFERENCE: REAL-TIME</text>
+    <line x1="0" y1="15" x2="1080" y2="15" stroke="#1e293b" stroke-width="1" />
+  </g>
+
+  <!-- Step 1: Camera Feed Input -->
+  <g transform="translate(80, 160)">
+    <rect width="200" height="340" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" />
+    <rect x="0" y="0" width="200" height="40" rx="12" fill="#1e293b" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#f8fafc">01 // OPTICAL FEED</text>
+
+    <!-- Camera Viewport Mockup -->
+    <rect x="25" y="65" width="150" height="180" rx="6" fill="#020617" stroke="#334155" />
+    <!-- Reticle -->
+    <circle cx="100" cy="155" r="45" fill="none" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="4,4" />
+    <line x1="100" y1="100" x2="100" y2="120" stroke="#0ea5e9" stroke-width="1.5" />
+    <line x1="100" y1="190" x2="100" y2="210" stroke="#0ea5e9" stroke-width="1.5" />
+    <line x1="45" y1="155" x2="65" y2="155" stroke="#0ea5e9" stroke-width="1.5" />
+    <line x1="135" y1="155" x2="155" y2="155" stroke="#0ea5e9" stroke-width="1.5" />
+    
+    <text x="20" y="295" font-family="monospace" font-size="11" fill="#94a3b8">Industrial Sensor Stream</text>
+    <text x="20" y="315" font-family="monospace" font-size="10" fill="#64748b">Perspective & Specular Norm</text>
+  </g>
+
+  <path d="M 280 330 L 350 330" stroke="url(#cyan-glow)" stroke-width="2" stroke-dasharray="6,4" />
+  <polygon points="350,326 360,330 350,334" fill="#38bdf8" />
+
+  <!-- Step 2: CNN Defect Localization -->
+  <g transform="translate(360, 140)">
+    <rect width="240" height="380" rx="12" fill="#0f172a" stroke="#0284c7" stroke-width="1.5" filter="url(#glow-filter-2)" fill-opacity="0.9" />
+    <rect x="0" y="0" width="240" height="40" rx="12" fill="#0c4a6e" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#38bdf8">02 // DEEP CONV & HEATMAP</text>
+
+    <!-- Visual Anomaly Detection Display -->
+    <g transform="translate(20, 65)">
+      <rect width="200" height="190" rx="6" fill="#020617" stroke="#1e293b" />
+      
+      <!-- Inspected Item representation -->
+      <circle cx="100" cy="95" r="60" fill="#0f172a" stroke="#334155" stroke-width="2" />
+      
+      <!-- Bounding Box on defect -->
+      <rect x="90" y="65" width="45" height="40" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3" />
+      <rect x="90" y="52" width="45" height="12" fill="#ef4444" />
+      <text x="94" y="61" font-family="monospace" font-size="8" font-weight="bold" fill="#ffffff">DEFECT</text>
+
+      <!-- Confidence readout -->
+      <text x="20" y="170" font-family="monospace" font-size="10" fill="#38bdf8">CLASS: MICRO_FRACTURE</text>
+      <text x="20" y="184" font-family="monospace" font-size="10" fill="#f87171">CONFIDENCE: 99.2%</text>
+    </g>
+
+    <text x="20" y="315" font-family="monospace" font-size="11" fill="#bae6fd">Feature Pyramid Network</text>
+    <text x="20" y="335" font-family="monospace" font-size="10" fill="#38bdf8">Sub-pixel Anomaly Map</text>
+  </g>
+
+  <path d="M 600 330 L 670 330" stroke="url(#cyan-glow)" stroke-width="2" />
+  <polygon points="670,326 680,330 670,334" fill="#38bdf8" />
+
+  <!-- Step 3: Defect Thresholding -->
+  <g transform="translate(680, 160)">
+    <rect width="200" height="340" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" />
+    <rect x="0" y="0" width="200" height="40" rx="12" fill="#1e293b" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#f8fafc">03 // QUALITY GATE</text>
+
+    <!-- Metrics bars -->
+    <g transform="translate(20, 70)">
+      <text font-family="monospace" font-size="10" fill="#94a3b8">SURFACE ANOMALY RATIO</text>
+      <rect y="12" width="160" height="8" rx="4" fill="#1e293b" />
+      <rect y="12" width="135" height="8" rx="4" fill="#ef4444" />
+
+      <text y="50" font-family="monospace" font-size="10" fill="#94a3b8">DIMENSION TOLERANCE</text>
+      <rect y="62" width="160" height="8" rx="4" fill="#1e293b" />
+      <rect y="62" width="150" height="8" rx="4" fill="#22c55e" />
+
+      <!-- Decision Indicator -->
+      <rect y="110" width="160" height="60" rx="8" fill="#450a0a" stroke="#dc2626" stroke-width="1.5" />
+      <text x="35" y="135" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fca5a5">GATE ACTION</text>
+      <text x="35" y="155" font-family="sans-serif" font-size="14" font-weight="900" fill="#ef4444">FLAG FOR REJECT</text>
+    </g>
+
+    <text x="20" y="295" font-family="monospace" font-size="11" fill="#94a3b8">Real-Time Thresholding</text>
+    <text x="20" y="315" font-family="monospace" font-size="10" fill="#64748b">Zero Assembly Line Stall</text>
+  </g>
+
+  <path d="M 880 330 L 950 330" stroke="url(#cyan-glow)" stroke-width="2" />
+  <polygon points="950,326 960,330 950,334" fill="#38bdf8" />
+
+  <!-- Step 4: Factory Edge & Telemetry -->
+  <g transform="translate(960, 160)">
+    <rect width="170" height="340" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" />
+    <rect x="0" y="0" width="170" height="40" rx="12" fill="#1e293b" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#f8fafc">04 // TELEMETRY</text>
+
+    <!-- Edge node stats -->
+    <g transform="translate(20, 70)">
+      <rect width="130" height="70" rx="6" fill="#1e293b" stroke="#334155" />
+      <text x="12" y="25" font-family="monospace" font-size="10" fill="#38bdf8">EDGE LATENCY</text>
+      <text x="12" y="52" font-family="sans-serif" font-size="20" font-weight="bold" fill="#ffffff">18.4 ms</text>
+    </g>
+
+    <g transform="translate(20, 160)">
+      <rect width="130" height="70" rx="6" fill="#1e293b" stroke="#334155" />
+      <text x="12" y="25" font-family="monospace" font-size="10" fill="#38bdf8">PLC TRIGGER</text>
+      <text x="12" y="52" font-family="sans-serif" font-size="14" font-weight="bold" fill="#34d399">SYNCED</text>
+    </g>
+
+    <text x="20" y="295" font-family="monospace" font-size="11" fill="#94a3b8">Industrial Edge Unit</text>
+    <text x="20" y="315" font-family="monospace" font-size="10" fill="#64748b">Operator Dashboard</text>
+  </g>
+
+  <g transform="translate(60, 630)">
+    <line x1="0" y1="0" x2="1080" y2="0" stroke="#1e293b" stroke-width="1" />
+    <text x="0" y="25" font-family="monospace" font-size="11" fill="#64748b">TASK: EDGE_CV_QC // RESOLUTION: 2048x1536 // ACCELERATOR: TENSOR_RT</text>
+    <text x="940" y="25" font-family="monospace" font-size="11" fill="#38bdf8">JAGAN S // AI ENGINEER</text>
+  </g>
+</svg>

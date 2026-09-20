@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a14" />
+      <stop offset="50%" stop-color="#0e0e1f" />
+      <stop offset="100%" stop-color="#050508" />
+    </linearGradient>
+    <linearGradient id="violet-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.8" />
+    </linearGradient>
+    <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <pattern id="dot-grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.07" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#bg-grad-1)" />
+  <rect width="1200" height="700" fill="url(#dot-grid)" />
+
+  <!-- Ambient Glow -->
+  <circle cx="600" cy="350" r="280" fill="#6366f1" fill-opacity="0.08" filter="url(#glow-filter)" />
+  <circle cx="950" cy="200" r="180" fill="#8b5cf6" fill-opacity="0.06" filter="url(#glow-filter)" />
+
+  <!-- Technical Header Bar -->
+  <g transform="translate(60, 50)">
+    <text font-family="monospace" font-size="12" fill="#818cf8" letter-spacing="2">SYSTEM ID: FIN-TECH-NLP-V1 // DATA INGESTION PIPELINE</text>
+    <text x="960" y="0" font-family="monospace" font-size="12" fill="#71717a" letter-spacing="1">STATUS: ACTIVE</text>
+    <line x1="0" y1="15" x2="1080" y2="15" stroke="#27272a" stroke-width="1" />
+  </g>
+
+  <!-- Node 1: Unstructured Document -->
+  <g transform="translate(80, 160)">
+    <rect width="200" height="340" rx="12" fill="#12121e" stroke="#27273a" stroke-width="1.5" />
+    <rect x="0" y="0" width="200" height="40" rx="12" fill="#181829" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#f4f4f5">01 // INGESTION</text>
+    
+    <!-- File Mockup -->
+    <rect x="25" y="65" width="150" height="190" rx="6" fill="#1e1e30" stroke="#373750" stroke-width="1" />
+    <rect x="40" y="85" width="80" height="6" rx="3" fill="#6366f1" fill-opacity="0.8" />
+    <rect x="40" y="105" width="120" height="4" rx="2" fill="#52525b" />
+    <rect x="40" y="120" width="110" height="4" rx="2" fill="#52525b" />
+    <rect x="40" y="135" width="90" height="4" rx="2" fill="#52525b" />
+    
+    <!-- Table Mockup -->
+    <rect x="40" y="160" width="120" height="70" rx="4" fill="#121222" stroke="#2e2e46" stroke-width="1" />
+    <line x1="40" y1="180" x2="160" y2="180" stroke="#3f3f5a" stroke-width="1" />
+    <line x1="80" y1="160" x2="80" y2="230" stroke="#3f3f5a" stroke-width="1" />
+    <line x1="120" y1="160" x2="120" y2="230" stroke="#3f3f5a" stroke-width="1" />
+
+    <text x="20" y="295" font-family="monospace" font-size="11" fill="#a1a1aa">PDF / Scanned Files</text>
+    <text x="20" y="315" font-family="monospace" font-size="10" fill="#71717a">Bounding-box OCR</text>
+  </g>
+
+  <!-- Flow Connector 1 -->
+  <path d="M 280 330 L 350 330" stroke="url(#violet-glow)" stroke-width="2" stroke-dasharray="6,4" />
+  <polygon points="350,326 360,330 350,334" fill="#818cf8" />
+
+  <!-- Node 2: Tokenization & NER -->
+  <g transform="translate(360, 140)">
+    <rect width="220" height="380" rx="12" fill="#12121e" stroke="#6366f1" stroke-width="1.5" filter="url(#glow-filter)" fill-opacity="0.9" />
+    <rect x="0" y="0" width="220" height="40" rx="12" fill="#1e1b4b" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#818cf8">02 // FINANCIAL NER</text>
+
+    <!-- Entity Tokens -->
+    <g transform="translate(20, 65)">
+      <rect width="180" height="42" rx="6" fill="#1e1e30" stroke="#373755" />
+      <text x="12" y="20" font-family="monospace" font-size="10" fill="#a5b4fc">ENTITY: FISCAL_REV</text>
+      <text x="12" y="34" font-family="sans-serif" font-size="12" font-weight="600" fill="#f4f4f5">$4,280,500.00</text>
+    </g>
+
+    <g transform="translate(20, 120)">
+      <rect width="180" height="42" rx="6" fill="#1e1e30" stroke="#373755" />
+      <text x="12" y="20" font-family="monospace" font-size="10" fill="#a5b4fc">ENTITY: NET_MARGIN</text>
+      <text x="12" y="34" font-family="sans-serif" font-size="12" font-weight="600" fill="#34d399">24.6% (+1.8%)</text>
+    </g>
+
+    <g transform="translate(20, 175)">
+      <rect width="180" height="42" rx="6" fill="#1e1e30" stroke="#373755" />
+      <text x="12" y="20" font-family="monospace" font-size="10" fill="#a5b4fc">ENTITY: QUARTER_DATE</text>
+      <text x="12" y="34" font-family="sans-serif" font-size="12" font-weight="600" fill="#f4f4f5">2026-Q2-CLOSE</text>
+    </g>
+
+    <g transform="translate(20, 230)">
+      <rect width="180" height="42" rx="6" fill="#1e1e30" stroke="#373755" />
+      <text x="12" y="20" font-family="monospace" font-size="10" fill="#a5b4fc">ENTITY: AUDIT_STATUS</text>
+      <text x="12" y="34" font-family="sans-serif" font-size="12" font-weight="600" fill="#38bdf8">VALIDATED_SIG</text>
+    </g>
+
+    <text x="20" y="315" font-family="monospace" font-size="11" fill="#c7d2fe">Contextual NLP Model</text>
+    <text x="20" y="335" font-family="monospace" font-size="10" fill="#818cf8">Heuristic Token Alignment</text>
+  </g>
+
+  <!-- Flow Connector 2 -->
+  <path d="M 580 330 L 650 330" stroke="url(#violet-glow)" stroke-width="2" />
+  <polygon points="650,326 660,330 650,334" fill="#818cf8" />
+
+  <!-- Node 3: Schema Normalization -->
+  <g transform="translate(660, 160)">
+    <rect width="200" height="340" rx="12" fill="#12121e" stroke="#27273a" stroke-width="1.5" />
+    <rect x="0" y="0" width="200" height="40" rx="12" fill="#181829" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#f4f4f5">03 // NORMALIZER</text>
+
+    <!-- Schema Mapping Mockup -->
+    <g transform="translate(20, 65)">
+      <rect width="160" height="180" rx="6" fill="#0d0d17" stroke="#272738" />
+      <text x="12" y="25" font-family="monospace" font-size="11" fill="#e4e4e7">{"balance": {</text>
+      <text x="20" y="45" font-family="monospace" font-size="10" fill="#93c5fd"> "curr": "USD",</text>
+      <text x="20" y="65" font-family="monospace" font-size="10" fill="#93c5fd"> "val": 4280500,</text>
+      <text x="20" y="85" font-family="monospace" font-size="10" fill="#93c5fd"> "conf": 0.984,</text>
+      <text x="20" y="105" font-family="monospace" font-size="10" fill="#93c5fd"> "period": "Q2"</text>
+      <text x="12" y="125" font-family="monospace" font-size="11" fill="#e4e4e7">}}</text>
+    </g>
+
+    <text x="20" y="295" font-family="monospace" font-size="11" fill="#a1a1aa">JSON / Schema Strict</text>
+    <text x="20" y="315" font-family="monospace" font-size="10" fill="#71717a">Mathematical Verification</text>
+  </g>
+
+  <!-- Flow Connector 3 -->
+  <path d="M 860 330 L 930 330" stroke="url(#violet-glow)" stroke-width="2" />
+  <polygon points="930,326 940,330 930,334" fill="#818cf8" />
+
+  <!-- Node 4: Structured DB & Downstream -->
+  <g transform="translate(940, 160)">
+    <rect width="180" height="340" rx="12" fill="#12121e" stroke="#27273a" stroke-width="1.5" />
+    <rect x="0" y="0" width="180" height="40" rx="12" fill="#181829" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#f4f4f5">04 // EXPORT</text>
+
+    <!-- DB Cylinders -->
+    <g transform="translate(25, 70)">
+      <ellipse cx="65" cy="20" rx="55" ry="14" fill="#2e1065" stroke="#7c3aed" stroke-width="1.5" />
+      <path d="M 10 20 L 10 70 A 55 14 0 0 0 120 70 L 120 20 Z" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5" />
+      <ellipse cx="65" cy="70" rx="55" ry="14" fill="#2e1065" stroke="#7c3aed" stroke-width="1.5" />
+      <text x="40" y="52" font-family="sans-serif" font-size="11" font-weight="bold" fill="#c084fc">SQL / DWH</text>
+    </g>
+
+    <!-- Downstream API -->
+    <g transform="translate(25, 180)">
+      <rect width="130" height="60" rx="6" fill="#181829" stroke="#3b82f6" stroke-width="1" />
+      <text x="15" y="26" font-family="monospace" font-size="10" fill="#60a5fa">API ENDPOINT</text>
+      <text x="15" y="44" font-family="sans-serif" font-size="11" font-weight="600" fill="#f4f4f5">Analytical Feed</text>
+    </g>
+
+    <text x="20" y="295" font-family="monospace" font-size="11" fill="#a1a1aa">Clean Enterprise Data</text>
+    <text x="20" y="315" font-family="monospace" font-size="10" fill="#71717a">Zero Manual Entry</text>
+  </g>
+
+  <!-- Bottom Coordinates -->
+  <g transform="translate(60, 630)">
+    <line x1="0" y1="0" x2="1080" y2="0" stroke="#27272a" stroke-width="1" />
+    <text x="0" y="25" font-family="monospace" font-size="11" fill="#71717a">ARCH: OCR_TOKENIZER_V2.1 // LATENCY: 240MS // OUTPUT: STRICT_SCHEMA</text>
+    <text x="940" y="25" font-family="monospace" font-size="11" fill="#6366f1">JAGAN S // AI ENGINEER</text>
+  </g>
+</svg>

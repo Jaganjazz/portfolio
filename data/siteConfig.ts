@@ -1,0 +1,36 @@
+export const siteConfig = {
+  name: "Jagan S",
+  shortName: "JAGAN S",
+  title: "AI ENGINEER",
+  role: "AI Engineer",
+  tagline: "Building intelligent systems that turn data into useful products.",
+  bio: "B.Tech Artificial Intelligence & Data Science student focused on Machine Learning, Generative AI, Data Analytics and intelligent software systems.",
+  longBio:
+    "B.Tech Artificial Intelligence and Data Science undergraduate with a strong foundation in Python, SQL, Machine Learning and Data Analytics. Passionate about building AI-driven solutions, solving real-world problems and continuously learning emerging technologies.",
+  specializations: [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Generative AI",
+    "Data Science",
+    "Computer Vision",
+    "Data Analytics",
+  ],
+  email: "jaganxjazz@gmail.com",
+  location: "Tirupattur, Tamil Nadu, India",
+  phone: "+91 72005 07801",
+  status: "AVAILABLE FOR OPPORTUNITIES",
+  links: {
+    github: "https://github.com/Jaganjazz",
+    linkedin: "https://www.linkedin.com/in/jagan--s/",
+    email: "mailto:jaganxjazz@gmail.com",
+    resumeDownload: "/assets/Jagan-Resume.pdf",
+    profileImage: "/assets/jagan-profile.png",
+  },
+  navItems: [
+    { label: "WORK", href: "#work", path: "/work" },
+    { label: "ABOUT", href: "#about", path: "/about" },
+    { label: "EXPERIENCE", href: "#experience", path: "/experience" },
+    { label: "CERTIFICATIONS", href: "#certifications", path: "/certifications" },
+    { label: "CONTACT", href: "#contact", path: "/contact" },
+  ],
+};

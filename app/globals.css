@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Galan';
+  src: url('/fonts/galan.woff2') format('woff2'),
+       url('/fonts/galan.ttf') format('truetype'),
+       url('/fonts/Galan.woff2') format('woff2'),
+       url('/fonts/Galan.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #050507;
+  --foreground: #f4f4f7;
+  --muted: #8e8f9c;
+  --accent: #8b5cf6;
+  --accent-bright: #a78bfa;
+  --accent-deep: #7c3aed;
+  --accent-glow: rgba(139, 92, 246, 0.18);
+  --card: #0c0c12;
+  --card-hover: #12121c;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
+  --font-galan-custom: 'Galan';
+}
+
+html {
+  background-color: var(--background);
+  color: var(--foreground);
+  scroll-behavior: smooth;
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Space Grotesk Headings */
+h1, h2, h3, .font-heading {
+  font-family: var(--font-space-grotesk), sans-serif;
+  letter-spacing: -0.03em;
+}
+
+/* Custom Selection */
+::selection {
+  background: #8b5cf6;
+  color: #ffffff;
+}
+
+@theme {
+  --font-heading: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+.font-galan {
+  font-family: var(--font-galan-custom), var(--font-space-grotesk), sans-serif;
+}
+
+/* Fluid Hero Typography for JAGAN and AI ENGINEER */
+.hero-name-clamp {
+  font-size: clamp(4.5rem, 15vw, 13rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero-title-clamp {
+  font-size: clamp(2rem, 5.5vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.hero-subtitle-clamp {
+  font-size: clamp(1.2rem, 2.2vw, 1.9rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+::-webkit-scrollbar-thumb {
+  background: #272733;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* Subtle Technical Grid Overlay */
+.tech-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Noise overlay utility */
+.ambient-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(100px);
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* Subtle badge rotation animation */
+@keyframes spinBadge {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.badge-spin-slow {
+  animation: spinBadge 24s linear infinite;
+  transform-origin: center center;
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}

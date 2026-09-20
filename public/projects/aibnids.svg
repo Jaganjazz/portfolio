@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad-4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140609" />
+      <stop offset="50%" stop-color="#240a10" />
+      <stop offset="100%" stop-color="#0a0305" />
+    </linearGradient>
+    <linearGradient id="rose-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#fb7185" stop-opacity="0.8" />
+    </linearGradient>
+    <filter id="glow-filter-4" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <pattern id="dot-grid-4" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#f43f5e" fill-opacity="0.08" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg-grad-4)" />
+  <rect width="1200" height="700" fill="url(#dot-grid-4)" />
+
+  <circle cx="580" cy="350" r="280" fill="#e11d48" fill-opacity="0.08" filter="url(#glow-filter-4)" />
+
+  <!-- Header -->
+  <g transform="translate(60, 50)">
+    <text font-family="monospace" font-size="12" fill="#fb7185" letter-spacing="2">SYSTEM ID: AIBNIDS-CLASSIFIER-V3 // NETWORK INTRUSION DETECTION</text>
+    <text x="960" y="0" font-family="monospace" font-size="12" fill="#71717a" letter-spacing="1">TELEMETRY: LIVE</text>
+    <line x1="0" y1="15" x2="1080" y2="15" stroke="#4c0519" stroke-width="1" />
+  </g>
+
+  <!-- Step 1: Packet Stream Ingestion -->
+  <g transform="translate(80, 160)">
+    <rect width="200" height="340" rx="12" fill="#1c0a10" stroke="#4c0519" stroke-width="1.5" />
+    <rect x="0" y="0" width="200" height="40" rx="12" fill="#2e0d16" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#fff1f2">01 // PACKET STREAM</text>
+
+    <!-- Raw Flow Representation -->
+    <g transform="translate(20, 65)">
+      <rect width="160" height="36" rx="4" fill="#260b13" stroke="#500724" />
+      <text x="10" y="22" font-family="monospace" font-size="9" fill="#fda4af">TCP 192.168.1.104:443</text>
+    </g>
+
+    <g transform="translate(20, 110)">
+      <rect width="160" height="36" rx="4" fill="#260b13" stroke="#500724" />
+      <text x="10" y="22" font-family="monospace" font-size="9" fill="#fda4af">UDP 10.0.0.12:53</text>
+    </g>
+
+    <g transform="translate(20, 155)">
+      <rect width="160" height="36" rx="4" fill="#3f0e1d" stroke="#e11d48" />
+      <text x="10" y="22" font-family="monospace" font-size="9" fill="#f43f5e">SYN_FLOOD (BURST: 2.8k)</text>
+    </g>
+
+    <text x="20" y="295" font-family="monospace" font-size="11" fill="#f43f5e">Raw Telemetry Sockets</text>
+    <text x="20" y="315" font-family="monospace" font-size="10" fill="#9f1239">High-throughput Flow Capture</text>
+  </g>
+
+  <path d="M 280 330 L 350 330" stroke="url(#rose-glow)" stroke-width="2" stroke-dasharray="6,4" />
+  <polygon points="350,326 360,330 350,334" fill="#f43f5e" />
+
+  <!-- Step 2: Feature Engineering Core -->
+  <g transform="translate(360, 140)">
+    <rect width="240" height="380" rx="12" fill="#1c0a10" stroke="#e11d48" stroke-width="1.5" filter="url(#glow-filter-4)" fill-opacity="0.95" />
+    <rect x="0" y="0" width="240" height="40" rx="12" fill="#4c0519" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#fda4af">02 // STATISTICAL PROFILER</text>
+
+    <!-- Extracted features -->
+    <g transform="translate(20, 65)">
+      <rect width="200" height="190" rx="6" fill="#0d0406" stroke="#4c0519" />
+      
+      <text x="14" y="26" font-family="monospace" font-size="10" fill="#fda4af">FEATURE VECTOR EXTRACTED</text>
+      
+      <text x="14" y="55" font-family="monospace" font-size="9" fill="#f43f5e">f01: SYN_FIN_RATIO = 8.92</text>
+      <text x="14" y="75" font-family="monospace" font-size="9" fill="#f43f5e">f02: DURATION_SEC  = 0.003</text>
+      <text x="14" y="95" font-family="monospace" font-size="9" fill="#f43f5e">f03: SRC_DST_BYTES = 428</text>
+      <text x="14" y="115" font-family="monospace" font-size="9" fill="#f43f5e">f04: WRONG_FRAGMENT = 0.0</text>
+      <text x="14" y="135" font-family="monospace" font-size="9" fill="#f43f5e">f05: SAME_SRV_RATE  = 0.12</text>
+
+      <line x1="14" y1="150" x2="186" y2="150" stroke="#4c0519" stroke-width="1" />
+      <text x="14" y="172" font-family="monospace" font-size="9" fill="#fb7185">ANOMALY WEIGHT: 0.94</text>
+    </g>
+
+    <text x="20" y="315" font-family="monospace" font-size="11" fill="#fca5a5">Statistical Flow Aggregator</text>
+    <text x="20" y="335" font-family="monospace" font-size="10" fill="#f43f5e">High-Signal Vector Isolation</text>
+  </g>
+
+  <path d="M 600 330 L 670 330" stroke="url(#rose-glow)" stroke-width="2" />
+  <polygon points="670,326 680,330 670,334" fill="#f43f5e" />
+
+  <!-- Step 3: ML Classifier -->
+  <g transform="translate(680, 160)">
+    <rect width="200" height="340" rx="12" fill="#1c0a10" stroke="#4c0519" stroke-width="1.5" />
+    <rect x="0" y="0" width="200" height="40" rx="12" fill="#2e0d16" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#fff1f2">03 // ML CLASSIFIER</text>
+
+    <!-- Threat Classes -->
+    <g transform="translate(20, 65)">
+      <rect width="160" height="40" rx="6" fill="#450a0a" stroke="#ef4444" stroke-width="1.5" />
+      <text x="12" y="24" font-family="monospace" font-size="11" font-weight="bold" fill="#fecaca">DoS ATTACK [98.7%]</text>
+
+      <rect y="50" width="160" height="34" rx="6" fill="#1f070b" stroke="#370d14" />
+      <text x="12" y="72" font-family="monospace" font-size="10" fill="#9f1239">PROBE SCAN [0.8%]</text>
+
+      <rect y="94" width="160" height="34" rx="6" fill="#1f070b" stroke="#370d14" />
+      <text x="12" y="116" font-family="monospace" font-size="10" fill="#9f1239">R2L EXPLOIT [0.3%]</text>
+
+      <rect y="138" width="160" height="34" rx="6" fill="#1f070b" stroke="#370d14" />
+      <text x="12" y="160" font-family="monospace" font-size="10" fill="#9f1239">BENIGN [0.2%]</text>
+    </g>
+
+    <text x="20" y="295" font-family="monospace" font-size="11" fill="#f43f5e">Multi-Class Threat Inference</text>
+    <text x="20" y="315" font-family="monospace" font-size="10" fill="#9f1239">Zero-Day Anomaly Detection</text>
+  </g>
+
+  <path d="M 880 330 L 950 330" stroke="url(#rose-glow)" stroke-width="2" />
+  <polygon points="950,326 960,330 950,334" fill="#f43f5e" />
+
+  <!-- Step 4: Defense Dispatch & SOC -->
+  <g transform="translate(960, 160)">
+    <rect width="170" height="340" rx="12" fill="#1c0a10" stroke="#4c0519" stroke-width="1.5" />
+    <rect x="0" y="0" width="170" height="40" rx="12" fill="#2e0d16" />
+    <text x="20" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#fff1f2">04 // MITIGATION</text>
+
+    <g transform="translate(15, 70)">
+      <rect width="140" height="70" rx="6" fill="#260b13" stroke="#881337" />
+      <text x="12" y="25" font-family="monospace" font-size="10" fill="#fda4af">ACTION TAKEN</text>
+      <text x="12" y="52" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ef4444">IP QUARANTINE</text>
+    </g>
+
+    <g transform="translate(15, 160)">
+      <rect width="140" height="70" rx="6" fill="#260b13" stroke="#881337" />
+      <text x="12" y="25" font-family="monospace" font-size="10" fill="#fda4af">SOC DISPATCH</text>
+      <text x="12" y="52" font-family="sans-serif" font-size="12" font-weight="bold" fill="#34d399">LOGGED & TIED</text>
+    </g>
+
+    <text x="20" y="295" font-family="monospace" font-size="11" fill="#f43f5e">Zero-Latency Defense</text>
+    <text x="20" y="315" font-family="monospace" font-size="10" fill="#9f1239">Automated SOC Telemetry</text>
+  </g>
+
+  <g transform="translate(60, 630)">
+    <line x1="0" y1="0" x2="1080" y2="0" stroke="#4c0519" stroke-width="1" />
+    <text x="0" y="25" font-family="monospace" font-size="11" fill="#9f1239">ENGINE: SUPERVISED_RANDOM_FOREST // DATASET: BENCHMARK_NET // PRECISION: HIGH</text>
+    <text x="940" y="25" font-family="monospace" font-size="11" fill="#f43f5e">JAGAN S // AI ENGINEER</text>
+  </g>
+</svg>
