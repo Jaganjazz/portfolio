@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import SmoothScroll from "@/components/providers/SmoothScroll";
+import Preloader from "@/components/providers/Preloader";
 import { siteConfig } from "@/data/siteConfig";
 
 const spaceGrotesk = Space_Grotesk({
@@ -81,6 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} dark`}>
       <body className="bg-[#050507] text-[#f4f4f7] font-sans antialiased selection:bg-indigo-600 selection:text-white">
+        <Preloader />
         <SmoothScroll>
           <Navbar />
           <main className="relative min-h-screen">{children}</main>

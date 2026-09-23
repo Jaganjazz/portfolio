@@ -157,3 +157,83 @@ html.lenis, html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
+/* Geometric Rotating Loader (Shoh2008 / Uiverse.io adapted for Portfolio) */
+.uiverse-loader {
+  --loader-sz: var(--loader-size, 48px);
+  width: var(--loader-sz);
+  height: var(--loader-sz);
+  position: relative;
+  box-sizing: border-box;
+  animation: uiverseRotationBack 1.1s ease-in-out infinite reverse;
+  display: block;
+}
+
+.uiverse-loader::before {
+  content: '';
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  transform: rotate(45deg);
+  position: absolute;
+  width: var(--loader-sz);
+  height: var(--loader-sz);
+}
+
+.uiverse-loader::after {
+  content: '';
+  box-sizing: border-box;
+  width: calc(var(--loader-sz) * 0.667);
+  height: calc(var(--loader-sz) * 0.667);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Portfolio Accent Theme (Violet/Purple Glow) */
+.uiverse-loader-accent {
+  background: #171126;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
+  border-radius: 3px;
+}
+
+.uiverse-loader-accent::before {
+  background: #251644;
+  border: 1px solid rgba(167, 139, 250, 0.45);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+  border-radius: 3px;
+}
+
+.uiverse-loader-accent::after {
+  background: #050507;
+  border: 1.5px solid rgba(167, 139, 250, 0.6);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.5), inset 0 0 8px rgba(139, 92, 246, 0.3);
+}
+
+/* Monochrome Theme (Original Uiverse) */
+.uiverse-loader-monochrome {
+  background: #353535;
+}
+
+.uiverse-loader-monochrome::before {
+  background: #2e2e2e;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+.uiverse-loader-monochrome::after {
+  background: rgb(0, 0, 0);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes uiverseRotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+

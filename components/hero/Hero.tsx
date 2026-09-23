@@ -173,7 +173,7 @@ export default function Hero() {
 
               {/* Primary Subtitle */}
               <p className="mt-3 text-lg sm:text-2xl font-heading font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#A78BFA] via-white to-[#8B5CF6]">
-                AI Engineer | Machine Learning Enthusiast
+                AI Engineer | Machine Learning
               </p>
 
               {/* Concept & Description */}

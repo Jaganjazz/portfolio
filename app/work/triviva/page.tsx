@@ -1,16 +1,12 @@
-import { projects } from "@/data/projects";
-import CaseStudyTemplate from "@/components/projects/CaseStudyTemplate";
-import { notFound } from "next/navigation";
+import TrivivaCaseStudy from "@/components/projects/TrivivaCaseStudy";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Triviva: AI Travel Planner — Jagan S",
-  description: "Built an AI-powered travel planning application that creates personalized itineraries using user preferences, budget and duration.",
+  title: "TRIVIVA: AI Travel Planner — Jagan S",
+  description: "An AI-powered travel planner combining Google Gemini with a Python/FastAPI service layer and smart budget engine to generate structured itineraries.",
 };
 
 export default function TrivivaPage() {
-  const project = projects.find((p) => p.id === "triviva");
-  if (!project) return notFound();
-
-  return <CaseStudyTemplate project={project} />;
+  return <TrivivaCaseStudy />;
 }
+
